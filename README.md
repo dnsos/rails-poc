@@ -55,3 +55,7 @@ Running `bundle exec bundle audit --update` will make use of `bundler-audit` and
 ### App security
 
 Running `bundle exec brakeman -q -w2` will perform a security audit of the application using `brakeman`.
+
+## CI with GitHub Actions
+
+Rails can be run in GitHub Actions. This repo contains a `.github/workflows/rails.yml` file which sets up a PostgreSQL database, runs the tests, and lints changes using `rubocop` and `bundler-audit`.
