@@ -27,3 +27,31 @@ Many things. Rails is complex and this guide is merely a basic proof-of-concept.
 
 - authentication / authorization (see e.g. [Devise](https://github.com/heartcombo/devise) and [CanCanCan](https://github.com/CanCanCommunity/cancancan))
 - ...
+
+## Development tooling
+
+### Linting with Rubocop
+
+Rubocop is a linter for Ruby files and is configured with this project. See the `./.rubocop.yml` for the current configuration.
+
+Rubocop can be executed with
+
+```bash
+bundle exec rubocop --parallel
+```
+
+and auto-corrects issues with
+
+```bash
+bundle exec rubocop --parallel -A
+```
+
+> <mark>TODO:</mark> How to format on save?
+
+### Gem security
+
+Running `bundle exec bundle audit --update` will make use of `bundler-audit` and `ruby_audit` and will scan gems and configuration for security issues.
+
+### App security
+
+Running `bundle exec brakeman -q -w2` will perform a security audit of the application using `brakeman`.
