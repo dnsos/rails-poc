@@ -4,7 +4,9 @@ one:
   title: MyString
   provider: MyString
   service: MyString
-  focus_groups: MyString
+  focus_groups:
+    - Group A
+    - Group B
   address: MyString
   postal_code: MyString
   city: MyString
@@ -19,7 +21,9 @@ two:
   title: MyString
   provider: MyString
   service: MyString
-  focus_groups: MyString
+  focus_groups:
+    - Group A
+    - Group B
   address: MyString
   postal_code: MyString
   city: MyString
