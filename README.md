@@ -1,24 +1,29 @@
-# README
+# Prototyping with Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This repo is intended as a basic proof-of-concept of how to leverage [Ruby on Rails](https://rubyonrails.org/) for quick prototyping.
 
-Things you may want to cover:
+## Getting started with Rails
 
-* Ruby version
+Rails is a full-stack framework and using it feels quite different from development in the Node.js world. Providing a _Getting started_ here would be out of scope, so please refer to the [official Getting started guide](https://guides.rubyonrails.org/getting_started.html) or the overview of [all Rails guides](https://guides.rubyonrails.org/index.html).
 
-* System dependencies
+## What does this repo cover?
 
-* Configuration
+The intention of this repo is to compare how workflows commonly used in our Node.js development can be translated into the Rails world. The topics that will be covered are the following:
 
-* Database creation
+- **Development tooling**: How to setup VSCode for a good development environment.
+- **Testing**: Rails has solid testing pre-configured.
+- **Renovate bot**: For keeping dependencies up to date.
+- **CI**: Rails can be run in GitHub Actions easily.
+- **Styling**: TailwindCSS can be configured with just one command.
+- **Deployment**: How to create a Docker image and deploy it.
 
-* Database initialization
+Apart from the more meta-view on development, this repo covers a common use case:
 
-* How to run the test suite
+> A map-based app provides information about localities. New localities can be created, existing ones updated or deleted and the list of localities is presented as a map view.
 
-* Services (job queues, cache servers, search engines, etc.)
+## What is not covered?
 
-* Deployment instructions
+Many things. Rails is complex and this guide is merely a basic proof-of-concept. Some things that are not covered are:
 
-* ...
+- authentication / authorization (see e.g. [Devise](https://github.com/heartcombo/devise) and [CanCanCan](https://github.com/CanCanCommunity/cancancan))
+- ...
