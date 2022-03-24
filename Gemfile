@@ -54,6 +54,17 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+
+  # Gem security
+  gem 'bundler-audit', '~> 0.9.0.1'
+  gem 'ruby_audit', '~> 2.1'
+
+  # Application security
+  gem 'brakeman', '~> 5.2', '>= 5.2.1'
+
+  # Linting
+  gem 'rubocop', '~> 1.26', require: false
+  gem 'rubocop-rails', '~> 2.14', '>= 2.14.2'
 end
 
 group :development do
