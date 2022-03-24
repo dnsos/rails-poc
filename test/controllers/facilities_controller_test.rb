@@ -19,7 +19,7 @@ class FacilitiesControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Facility.count') do
       post facilities_url,
            params: { facility: { address: @facility.address, city: @facility.city, district: @facility.district,
-                                 email: @facility.email, focus_groups: @facility.focus_groups, latitude: @facility.latitude, longitude: @facility.longitude, phone: @facility.phone, postal_code: @facility.postal_code, provider: @facility.provider, service: @facility.service, title: @facility.title, website: @facility.website } }
+                                 email: @facility.email, latitude: @facility.latitude, longitude: @facility.longitude, phone: @facility.phone, postal_code: @facility.postal_code, provider: @facility.provider, service: @facility.service, title: @facility.title, website: @facility.website } }
     end
 
     assert_redirected_to facility_url(Facility.last)
@@ -38,7 +38,7 @@ class FacilitiesControllerTest < ActionDispatch::IntegrationTest
   test 'should update facility' do
     patch facility_url(@facility),
           params: { facility: { address: @facility.address, city: @facility.city, district: @facility.district,
-                                email: @facility.email, focus_groups: @facility.focus_groups, latitude: @facility.latitude, longitude: @facility.longitude, phone: @facility.phone, postal_code: @facility.postal_code, provider: @facility.provider, service: @facility.service, title: @facility.title, website: @facility.website } }
+                                email: @facility.email, latitude: @facility.latitude, longitude: @facility.longitude, phone: @facility.phone, postal_code: @facility.postal_code, provider: @facility.provider, service: @facility.service, title: @facility.title, website: @facility.website } }
     assert_redirected_to facility_url(@facility)
   end
 

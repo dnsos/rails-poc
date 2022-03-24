@@ -18,7 +18,6 @@ class FacilitiesTest < ApplicationSystemTestCase
     fill_in 'City', with: @facility.city
     fill_in 'District', with: @facility.district
     fill_in 'Email', with: @facility.email
-    fill_in 'Focus groups', with: @facility.focus_groups
     fill_in 'Latitude', with: @facility.latitude
     fill_in 'Longitude', with: @facility.longitude
     fill_in 'Phone', with: @facility.phone
@@ -41,7 +40,6 @@ class FacilitiesTest < ApplicationSystemTestCase
     fill_in 'City', with: @facility.city
     fill_in 'District', with: @facility.district
     fill_in 'Email', with: @facility.email
-    fill_in 'Focus groups', with: @facility.focus_groups
     fill_in 'Latitude', with: @facility.latitude
     fill_in 'Longitude', with: @facility.longitude
     fill_in 'Phone', with: @facility.phone
