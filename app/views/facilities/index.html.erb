@@ -9,7 +9,12 @@
 
   <div id="facilities" data-controller="map" class="w-full h-full grid grid-cols-8 gap-0">
     <div class="col-span-3 h-full overflow-y-scroll">
-      <%= render @facilities %>
+      <%= turbo_frame_tag 'facilities' do %>
+        <%= render @facilities %>
+        <div class="p-5 flex justify-end">
+          <%== pagy_nav(@pagy) %>
+        </div>
+      <% end %>
     </div>
     <div class="bg-neutral-100 border-r border-neutral-200 col-span-5">
       <div id="map" class="w-full h-full"></div>

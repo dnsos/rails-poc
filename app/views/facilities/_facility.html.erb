@@ -1,10 +1,11 @@
 <div class="block border-b border-neutral-200 group">
-  <%= link_to(facility, { class: 'block py-5 px-5 transition-colors group-hover:bg-lime-50', id: dom_id(facility) }) do %>
+  <%= link_to(facility, { class: 'block py-5 px-5 transition-colors group-hover:bg-lime-50', id: dom_id(facility), data: { turbo: false } }) do %>
     <h2
       class="text-xl font-bold text-lime-600 italic transition-transform group-hover:translate-x-2"
       data-map-target="facility"
       data-latitude="<%= facility.latitude %>"
       data-longitude="<%= facility.longitude %>"
+      data-facility-id="<%= facility.id %>"
     >
       <%= facility.title %>
     </h2>
@@ -21,6 +22,7 @@
       class="h-min opacity-0 transition-colors group-hover:opacity-100 py-2 px-3 bg-lime-100 text-lime-900 font-medium hover:bg-lime-300"
       data-latitude="<%= facility.latitude %>"
       data-longitude="<%= facility.longitude %>"
+      data-facility-id="<%= facility.id %>"
       data-action="click->map#flyTo"
     >
       Auf Karte zeigen

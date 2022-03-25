@@ -3,7 +3,12 @@ class FacilitiesController < ApplicationController
 
   # GET /facilities or /facilities.json
   def index
-    @facilities = Facility.all
+    #@facilities = Facility.all
+    @pagy, @facilities =
+      pagy(
+        Facility.all,
+        link_extra: 'data-turbo-frame="facilities" data-turbo-action="advance"',
+      )
   end
 
   # GET /facilities/1 or /facilities/1.json
@@ -23,11 +28,16 @@ class FacilitiesController < ApplicationController
 
     respond_to do |format|
       if @facility.save
-        format.html { redirect_to facility_url(@facility), notice: 'Facility was successfully created.' }
+        format.html do
+          redirect_to facility_url(@facility),
+                      notice: 'Facility was successfully created.'
+        end
         format.json { render :show, status: :created, location: @facility }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @facility.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @facility.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -36,11 +46,16 @@ class FacilitiesController < ApplicationController
   def update
     respond_to do |format|
       if @facility.update(facility_params)
-        format.html { redirect_to facility_url(@facility), notice: 'Facility was successfully updated.' }
+        format.html do
+          redirect_to facility_url(@facility),
+                      notice: 'Facility was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @facility }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @facility.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @facility.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -50,7 +65,10 @@ class FacilitiesController < ApplicationController
     @facility.destroy
 
     respond_to do |format|
-      format.html { redirect_to facilities_url, notice: 'Facility was successfully destroyed.' }
+      format.html do
+        redirect_to facilities_url,
+                    notice: 'Facility was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
@@ -64,7 +82,21 @@ class FacilitiesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def facility_params
-    params.require(:facility).permit(:title, :provider, :service, :address, :postal_code, :city,
-                                     :phone, :email, :website, :latitude, :longitude, :district)
+    params
+      .require(:facility)
+      .permit(
+        :title,
+        :provider,
+        :service,
+        :address,
+        :postal_code,
+        :city,
+        :phone,
+        :email,
+        :website,
+        :latitude,
+        :longitude,
+        :district,
+      )
   end
 end
