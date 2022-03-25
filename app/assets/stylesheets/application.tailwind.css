@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  a {
+    @apply focus:outline-none focus:ring focus:ring-purple-600 focus:ring-offset-1;
+  }
+
+  button {
+    @apply focus:outline-none focus:opacity-100 focus:ring focus:ring-purple-600 focus:ring-offset-1;
+  }
+}
 /*
 
 @layer components {
