@@ -1,14 +1,18 @@
-<div class="w-full">
+<% content_for :top_right do %>
+  <%= link_to 'New facility', new_facility_path, class: "rounded-lg py-1 px-3 bg-lime-600 text-white block font-medium" %>
+<% end %>
+
+<div class="w-full h-full">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Facilities</h1>
-    <%= link_to 'New facility', new_facility_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
-  </div>
-
-  <div id="facilities" class="min-w-full">
-    <%= render @facilities %>
+  <div id="facilities" data-controller="map" class="w-full h-full grid grid-cols-8 gap-0">
+    <div class="col-span-3 h-full overflow-y-scroll">
+      <%= render @facilities %>
+    </div>
+    <div class="bg-neutral-100 border-r border-neutral-200 col-span-5">
+      <div id="map" class="w-full h-full"></div>
+    </div>
   </div>
 </div>

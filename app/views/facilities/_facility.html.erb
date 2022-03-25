@@ -1,67 +1,29 @@
-<div id="<%= dom_id facility %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
-    <%= facility.title %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Provider:</strong>
-    <%= facility.provider %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Service:</strong>
-    <%= facility.service %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Address:</strong>
-    <%= facility.address %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Postal code:</strong>
-    <%= facility.postal_code %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">City:</strong>
-    <%= facility.city %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Phone:</strong>
-    <%= facility.phone %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Email:</strong>
-    <%= facility.email %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Website:</strong>
-    <%= facility.website %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Latitude:</strong>
-    <%= facility.latitude %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Longitude:</strong>
-    <%= facility.longitude %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">District:</strong>
-    <%= facility.district %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this facility", facility, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this facility', edit_facility_path(facility), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
+<div class="block border-b border-neutral-200 group">
+  <%= link_to(facility, { class: 'block py-5 px-5 transition-colors group-hover:bg-lime-50', id: dom_id(facility) }) do %>
+    <h2
+      class="text-xl font-bold text-lime-600 italic transition-transform group-hover:translate-x-2"
+      data-map-target="facility"
+      data-latitude="<%= facility.latitude %>"
+      data-longitude="<%= facility.longitude %>"
+    >
+      <%= facility.title %>
+    </h2>
+    <p class="text-neutral-600 transition-transform group-hover:translate-x-2">
+      <%= facility.service %>
+    </p>
   <% end %>
+  <div class="py-2 pl-5 pr-2 grid grid-cols-[1fr_auto] gap-2 items-center">
+    <p class="text-neutral-600 text-sm">
+      <b>Angebot von:</b> <br>
+      <%= facility.provider %>
+    </p>
+    <button
+      class="h-min opacity-0 transition-colors group-hover:opacity-100 py-2 px-3 bg-lime-100 text-lime-900 font-medium hover:bg-lime-300"
+      data-latitude="<%= facility.latitude %>"
+      data-longitude="<%= facility.longitude %>"
+      data-action="click->map#flyTo"
+    >
+      Auf Karte zeigen
+    </button>
+  </div>
 </div>
