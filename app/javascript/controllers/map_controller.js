@@ -13,12 +13,46 @@ export default class extends Controller {
   connect() {
     map = new maplibregl.Map({
       container: "map",
-      style: `https://api.maptiler.com/maps/streets/style.json?key=`,
+      style: `https://api.maptiler.com/maps/streets/style.json?key=`, // TODO: hide the key!
       center: [13.404954, 52.520008],
       zoom: 12,
     });
 
     map.addControl(new maplibregl.NavigationControl());
+
+    const MAX_LATITUDE = Math.max(
+      ...this.facilityTargets.map((facility) =>
+        Number(facility.dataset.latitude)
+      )
+    );
+
+    const MIN_LATITUDE = Math.min(
+      ...this.facilityTargets.map((facility) =>
+        Number(facility.dataset.latitude)
+      )
+    );
+
+    const MAX_LONGITUDE = Math.max(
+      ...this.facilityTargets.map((facility) =>
+        Number(facility.dataset.longitude)
+      )
+    );
+
+    const MIN_LONGITUDE = Math.min(
+      ...this.facilityTargets.map((facility) =>
+        Number(facility.dataset.longitude)
+      )
+    );
+
+    map.fitBounds(
+      [
+        [MIN_LONGITUDE, MAX_LATITUDE], // southwestern corner of the bounds
+        [MAX_LONGITUDE, MIN_LATITUDE], // northeastern corner of the bounds
+      ],
+      {
+        padding: { top: 20, bottom: 20, left: 20, right: 20 },
+      }
+    );
 
     this.facilityTargets.forEach((facility) => {
       const popup = new maplibregl.Popup({ offset: 25 }).setHTML(
