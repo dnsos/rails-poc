@@ -11,12 +11,31 @@
     @apply focus:outline-none focus:opacity-100 focus:ring focus:ring-purple-600 focus:ring-offset-1;
   }
 }
-/*
 
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
-  }
+/*
+  Pagy customization
+*/
+.pagy-nav,
+.pagy-nav-js {
+  @apply flex gap-2;
 }
 
-*/
+.pagy-nav .page a,
+.pagy-nav .page.active {
+  @apply block px-3 py-1 text-sm text-lime-600 bg-lime-50 border border-transparent;
+}
+
+.pagy-nav .page.prev.disabled,
+.pagy-nav .page.next.disabled {
+  @apply block px-3 py-1 text-sm text-lime-400 bg-lime-50 border border-transparent bg-opacity-50 cursor-default;
+}
+
+.pagy-nav .page a:hover,
+.pagy-nav .page.active:hover {
+  @apply border-lime-600;
+}
+
+.pagy-nav .page.active,
+.pagy-nav-js .page.active {
+  @apply text-white bg-lime-700 cursor-default;
+}

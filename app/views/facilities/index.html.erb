@@ -11,7 +11,7 @@
     <div class="col-span-3 h-full overflow-y-scroll">
       <%= turbo_frame_tag 'facilities' do %>
         <%= render @facilities %>
-        <div class="p-5 flex justify-end">
+        <div class="p-5 flex justify-center">
           <%== pagy_nav(@pagy) %>
         </div>
       <% end %>
