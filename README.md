@@ -43,7 +43,7 @@ bundle exec rubocop --parallel
 and auto-corrects issues with
 
 ```bash
-bundle exec rubocop --parallel -A
+bundle exec rubocop -A
 ```
 
 > <mark>TODO:</mark> How to format on save?
