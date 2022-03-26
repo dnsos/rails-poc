@@ -1,15 +1,53 @@
-<div class="mx-auto md:w-2/3 w-full flex">
+<div class="block py-5 px-5" data-controller="facility" data-latitude="<%= @facility.latitude %>" data-longitude="<%= @facility.longitude %>">
   <div class="mx-auto">
     <% if notice.present? %>
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
 
-    <%= render @facility %>
+    <%= link_to 'Zur Übersicht', facilities_path, class: "inline-block font-medium mb-16 text-neutral-600" %>
 
-    <%= link_to 'Edit this facility', edit_facility_path(@facility), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to 'Destroy this facility', facility_path(@facility), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+    <div class="grid gap-4 grid-cols-2">
+      <div>
+        <h1
+          class="text-3xl font-bold text-lime-600 italic"
+        >
+          <%= @facility.title %>
+        </h1>
+        <p class="text-neutral-600">
+          <%= @facility.service %>
+        </p>
+
+        <p class="mt-4 text-neutral-600 text-sm">
+          <b>Angebot von:</b> <br>
+          <%= @facility.provider %>
+        </p>
+      </div>
+
+      <div>
+        <div id="facility-map" class="w-full h-72"></div>
+        <p><%= @facility.address %></p>
+        <p><%= @facility.city %></p>
+        <p>Bezirk: <%= @facility.district %></p>
+      </div>
     </div>
-    <%= link_to 'Back to facilities', facilities_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+
+    <div class="mt-6 mb-32">
+      <% if @facility.email %>
+        <%= link_to 'E-Mail schreiben', "mailto:#{@facility.email}", class: 'inline-block p-3 bg-lime-600 text-white' %>
+      <% end %>
+      <% if @facility.website %>
+        <%= link_to 'Website', "https://#{@facility.website}", class: 'inline-block p-3 bg-lime-600 text-white' %>
+      <% end %>
+      <% if @facility.phone %>
+      <p class="inline-block p-3 bg-lime-100 text-lime-600">
+        Tel.: <%= @facility.phone %>
+      </p>
+      <% end %>
+    </div>
+
+    <%= link_to 'Bearbeiten', edit_facility_path(@facility), class: "mt-2 py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <div class="inline-block ml-2">
+      <%= button_to 'Löschen', facility_path(@facility), method: :delete, class: "mt-2 py-3 px-5 bg-gray-100 text-red-500 font-medium" %>
+    </div>
   </div>
 </div>
