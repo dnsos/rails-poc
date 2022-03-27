@@ -1,19 +1,24 @@
-<% content_for :top_right do %>
-  <%= link_to 'New facility', new_facility_path, class: "rounded-lg py-1 px-3 bg-lime-600 text-white block font-medium" %>
-<% end %>
-
+<% content_for :top_right do %> <%= link_to 'New facility', new_facility_path,
+class: "rounded-lg py-1 px-3 bg-lime-600 text-white block font-medium" %> <% end
+%>
 <div class="w-full h-full">
   <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <p
+    class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block"
+    id="notice"
+  >
+    <%= notice %>
+  </p>
   <% end %>
-
-  <div id="facilities" data-controller="map" class="w-full h-full grid grid-cols-8 gap-0">
+  <div
+    id="facilities"
+    data-controller="map"
+    class="w-full h-full grid grid-cols-8 gap-0"
+    data-map-maptiler-key-value="<%= Rails.application.credentials.public_maptiler_key %>"
+  >
     <div class="col-span-3 h-full overflow-y-scroll">
-      <%= turbo_frame_tag 'facilities' do %>
-        <%= render @facilities %>
-        <div class="p-5 flex justify-center">
-          <%== pagy_nav(@pagy) %>
-        </div>
+      <%= turbo_frame_tag 'facilities' do %> <%= render @facilities %>
+      <div class="p-5 flex justify-center"><%== pagy_nav(@pagy) %></div>
       <% end %>
     </div>
     <div class="bg-neutral-100 border-r border-neutral-200 col-span-5">

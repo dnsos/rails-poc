@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
+import { DEFAULT_CENTER, getMaptilerStyle } from "./utils/map_utils.js";
 import "maplibre-gl";
 
 /**
@@ -8,12 +9,17 @@ let markers;
 
 export default class extends Controller {
   static targets = ["facility"];
+  static values = {
+    "maptiler-key": String,
+  };
 
   initialize() {
+    if (!this.hasMaptilerKeyValue) return;
+
     this.map = new maplibregl.Map({
       container: "map",
-      style: `https://api.maptiler.com/maps/streets/style.json?key=`, // TODO: hide the key!
-      center: [13.404954, 52.520008],
+      style: getMaptilerStyle(this.maptilerKeyValue),
+      center: DEFAULT_CENTER,
       zoom: 12,
     });
 
