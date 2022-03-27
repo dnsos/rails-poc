@@ -12,18 +12,18 @@ CSV.foreach(
   # Create a new facility for every row in the CSV
   Facility.create(
     {
-      title: row['Projekt'],
-      provider: row['Zuwendungsempfänger'],
-      service: row['Leistung'],
-      address: row['Adresse'],
-      postal_code: row['PLZ'],
-      city: row['Ort'],
-      phone: row['Telefonnummer'],
-      email: row['EMail'],
-      website: row['Website'],
-      latitude: row['gc_ywert'],
-      longitude: row['gc_xwert'],
-      district: row['Bezirk'],
+      title: row[0], # Projekt
+      provider: row[1], # Zuwendungsempfänger
+      service: row[5], # Leistung
+      address: row[7], # Adresse
+      postal_code: row[8], # PLZ
+      city: row[9], # Ort
+      phone: row[10], # Telefonnummer
+      email: row[11], # EMail
+      website: row[12], # Website
+      latitude: row[14], # gc_ywert
+      longitude: row[13], # gc_xwert
+      district: row[6], # Bezirk
     },
   )
 end
