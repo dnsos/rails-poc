@@ -6,14 +6,7 @@
   data-facility-maptiler-key-value="<%= Rails.application.credentials.public_maptiler_key %>"
 >
   <div class="mx-auto">
-    <% if notice.present? %>
-    <p
-      class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block"
-      id="notice"
-    >
-      <%= notice %>
-    </p>
-    <% end %> <%= link_to 'Zur Übersicht', facilities_path, class: "inline-block
+    <%= link_to 'Zur Übersicht', facilities_path, class: "inline-block
     font-medium mb-16 text-neutral-600" %>
     <div class="grid gap-4 grid-cols-2">
       <div>
