@@ -20,49 +20,54 @@ facility.errors.any? %>
 <% end %>
 
 <div class="my-5">
-  <%= form.label :title %> <%= form.text_field :title, class: "block shadow
+  <%= form.label :title, 'Name' %> <%= form.text_field :title, class: "block shadow
   rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
 </div>
 
 <div class="my-5">
-  <%= form.label :provider %> <%= form.text_field :provider, class: "block
+  <%= form.label :provider, 'Anbieter' %> <%= form.text_field :provider, class: "block
   shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"
   %>
 </div>
 
 <div class="my-5">
-  <%= form.label :service %> <%= form.text_field :service, class: "block shadow
+  <%= form.label :service, 'Leistung' %> <%= form.text_field :service, class: "block shadow
   rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
 </div>
 
 <div class="my-5">
-  <%= form.label :address %> <%= form.text_field :address, class: "block shadow
+  <%= form.label :address, 'Adresse' %> <%= form.text_field :address, class: "block shadow
   rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
 </div>
 
 <div class="my-5">
-  <%= form.label :postal_code %> <%= form.text_field :postal_code, class: "block
+  <%= form.label :district, 'Bezirk' %> <%= form.text_field :district, class: "block
   shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"
   %>
 </div>
 
+<div class="my-5 grid gap-5 grid-cols-2">
+  <div>
+    <%= form.label :postal_code, 'PLZ' %> <%= form.text_field :postal_code, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+  <div>
+    <%= form.label :city, 'Ort' %> <%= form.text_field :city, class: "block shadow
+    rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+</div>
+
 <div class="my-5">
-  <%= form.label :city %> <%= form.text_field :city, class: "block shadow
+  <%= form.label :phone, 'Telefonnummer' %> <%= form.text_field :phone, class: "block shadow
   rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
 </div>
 
 <div class="my-5">
-  <%= form.label :phone %> <%= form.text_field :phone, class: "block shadow
+  <%= form.label :email, 'E-Mail' %> <%= form.text_field :email, class: "block shadow
   rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
 </div>
 
 <div class="my-5">
-  <%= form.label :email %> <%= form.text_field :email, class: "block shadow
-  rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-</div>
-
-<div class="my-5">
-  <%= form.label :website %> <%= form.text_field :website, class: "block shadow
+  <%= form.label :website, 'Website' %> <%= form.text_field :website, class: "block shadow
   rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
 </div>
 
@@ -70,26 +75,22 @@ facility.errors.any? %>
   <div id="facility_form" class="w-full h-72"></div>
 </div>
 
-<div class="my-5">
-  <%= form.label :latitude %> <%= form.text_field :latitude,
-  'data-facility-form-target': 'latitude', class: "block shadow rounded-md
-  border border-gray-200 outline-none px-3 py-2 mt-2 w-full", id: "facility_latitude" %>
-</div>
+<div class="my-5 grid gap-5 grid-cols-2">
+  <div class="">
+    <%= form.label :latitude, 'Latitude' %> <%= form.text_field :latitude,
+    'data-facility-form-target': 'latitude', class: "block shadow rounded-md
+    border border-gray-200 outline-none px-3 py-2 mt-2 w-full", id: "facility_latitude" %>
+  </div>
 
-<div class="my-5">
-  <%= form.label :longitude %> <%= form.text_field :longitude,
-  'data-facility-form-target': 'longitude', class: "block shadow rounded-md
-  border border-gray-200 outline-none px-3 py-2 mt-2 w-full", id: "facility_longitude" %>
-</div>
-
-<div class="my-5">
-  <%= form.label :district %> <%= form.text_field :district, class: "block
-  shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"
-  %>
+  <div class="">
+    <%= form.label :longitude, 'Longitude' %> <%= form.text_field :longitude,
+    'data-facility-form-target': 'longitude', class: "block shadow rounded-md
+    border border-gray-200 outline-none px-3 py-2 mt-2 w-full", id: "facility_longitude" %>
+  </div>
 </div>
 
 <div class="inline">
-  <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white
+  <%= form.submit class: "rounded-md py-3 px-5 bg-lime-600 text-white
   inline-block font-medium cursor-pointer" %>
 </div>
 <% end %>

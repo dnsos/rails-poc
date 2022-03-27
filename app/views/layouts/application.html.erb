@@ -13,8 +13,8 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="h-screen overflow-hidden">
-    <header class="h-[49px] py-2 px-3 flex justify-between gap-2 items-center border-b border-b-neutral-200">
+  <body class="<%= yield :body_class %>">
+    <header class="sticky bg-white top-0 left-0 h-[49px] py-2 px-3 flex justify-between gap-2 items-center border-b border-b-neutral-200 z-10">
       <%= link_to "Home", root_path, class: 'py-1 font-medium text-lime-600' %>
       <div>
         <%= yield :top_right %>
