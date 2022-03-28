@@ -17,7 +17,7 @@
         <% unless @facility.focus_groups.empty? %>
           <div class="mt-2 transition-transform group-hover:translate-x-2">
             <% @facility.focus_groups.each do |focus_group| %>
-              <span class="bg-lime-50 text-lime-700 text-sm rounded-md px-1 py-0.5 border border-lime-600"><%= focus_group.label %></span>
+              <span class="bg-lime-50 text-lime-700 text-sm rounded-md px-1 py-0.5 border border-lime-700 transition-colors hover:bg-lime-700 hover:text-white"><%= link_to focus_group.label, focus_group_path(focus_group) %></span>
             <% end %>
           </div>
         <% end %>
