@@ -14,6 +14,13 @@
           <%= @facility.title %>
         </h1>
         <p class="text-neutral-600"><%= @facility.service %></p>
+        <% unless @facility.focus_groups.empty? %>
+          <div class="mt-2 transition-transform group-hover:translate-x-2">
+            <% @facility.focus_groups.each do |focus_group| %>
+              <span class="bg-lime-50 text-lime-700 text-sm rounded-md px-1 py-0.5 border border-lime-600"><%= focus_group.label %></span>
+            <% end %>
+          </div>
+        <% end %>
         <p class="mt-4 text-neutral-600 text-sm">
           <b>Angebot von:</b> <br />
           <%= @facility.provider %>
