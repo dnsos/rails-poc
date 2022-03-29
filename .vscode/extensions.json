@@ -6,7 +6,8 @@
 	"recommendations": [
 		"esbenp.prettier-vscode",
 		"rebornix.ruby",
-		"misogi.ruby-rubocop"
+		"misogi.ruby-rubocop",
+		"castwide.solargraph"
 		
 	],
 	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
