@@ -11,6 +11,7 @@ AllCops:
     - 'config/**/*'
     - 'bin/**/*'
     - 'node_modules/**/*'
+    - 'vendor/bundle/**/*' # only needed for GitHub Action to not get confused
 
 # Modified cops/rules
 Style/FrozenStringLiteralComment:
