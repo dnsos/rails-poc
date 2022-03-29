@@ -30,6 +30,16 @@
         </p>
       </div>
     <% end %>
+    <% if alert.present? %>
+      <div class="w-screen mx-auto absolute top-14 left-0 flex justify-center z-50 pointer-events-none">
+        <p
+          class="py-2 px-3 bg-red-50 mb-5 text-red-600 font-medium rounded-lg inline-block shadow-md"
+          id="alert"
+        >
+          <%= alert %>
+        </p>
+      </div>
+    <% end %>
     <main class="h-[calc(100vh-49px)]">
       <%= yield %>
     </main>
