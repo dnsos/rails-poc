@@ -10,12 +10,11 @@ Rails is a full-stack framework and using it feels quite different from developm
 
 The intention of this repo is to compare how workflows commonly used in our Node.js development can be translated into the Rails world. The topics that will be covered are the following:
 
-- **Development tooling**: How to setup VSCode for a good development environment.
+- **Development tooling**: How to setup [VSCode](https://code.visualstudio.com/) for a good development environment.
 - **Testing**: Rails has solid testing pre-configured.
 - **Renovate bot**: For keeping dependencies up to date.
 - **CI**: Rails can be run in GitHub Actions easily.
 - **Styling**: TailwindCSS can be configured with just one command.
-- **Deployment**: How to create a Docker image and deploy it.
 
 Apart from the more meta-view on development, this repo covers a common use case:
 
@@ -26,9 +25,47 @@ Apart from the more meta-view on development, this repo covers a common use case
 Many things. Rails is complex and this guide is merely a basic proof-of-concept. Some things that are not covered are:
 
 - authentication / authorization (see e.g. [Devise](https://github.com/heartcombo/devise) and [CanCanCan](https://github.com/CanCanCommunity/cancancan))
-- ...
+- deployment
 
 ## Development tooling
+
+### Extensions
+
+Add the extensions listed in `.vscode/extensions.json` for a better development experience.
+
+### Syntax highliting
+
+Add the following associations to your `settings.json`:
+
+```json
+"files.associations": {
+    "*.erb": "erb",
+    "*.html.erb": "erb"
+  },
+```
+
+This will give you a nice syntax highliting, however you won't be able to auto-format these files as HTML anymore (see next section).
+
+### Code formatting
+
+> This section assumes that you use the [VSCode editor](https://code.visualstudio.com/).
+
+#### Ruby files
+
+Ruby files (`.rb`) can be nicely auto-formatted with Prettier and its plugin for Ruby (defined in `package.json`).
+
+You will need to add the following to your `settings.json`:
+
+```json
+"[ruby]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+```
+
+### ERB files
+
+Embedded Ruby files (`.erb` or `.html.erb`) are, as of writing, notoriously hard to auto-format. There exist some VSCode extensions and plugins for Prettier, however none have achieved satisfying results for me so far.
 
 ### Linting with Rubocop
 
@@ -46,8 +83,6 @@ and auto-corrects issues with
 bundle exec rubocop -A
 ```
 
-> <mark>TODO:</mark> How to format on save?
-
 ### Gem security
 
 Running `bundle exec bundle audit --update` will make use of `bundler-audit` and `ruby_audit` and will scan gems and configuration for security issues.
@@ -55,6 +90,25 @@ Running `bundle exec bundle audit --update` will make use of `bundler-audit` and
 ### App security
 
 Running `bundle exec brakeman -q -w2` will perform a security audit of the application using `brakeman`.
+
+### TailwindCSS
+
+Tailwind can be configured for Rails by simply passing `--css tailwind` to the app generator, e.g.
+
+```bash
+rails generate my-app --css tailwind
+```
+
+When using VSCode you might need to tweak your settings, so that Tailwind Intellisense picks up the often used `class: 'your classes'` or `class: "your classes"`. As of writing you can add the following to your `settings.json`:
+
+```json
+"tailwindCSS.experimental.classRegex": [
+    "class:\\s*\"|'([^\"]*)\"|'"
+  ]
+```
+
+The regex will pick up both of the aforementioned ways of adding classes. Adjust the regex or add new patterns to the array if needed.
+
 
 ## CI with GitHub Actions
 
