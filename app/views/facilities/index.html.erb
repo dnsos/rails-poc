@@ -1,7 +1,7 @@
 <% content_for :body_class do %>h-screen overflow-y-hidden<% end
 %>
 
-<% if user_signed_in? %>
+<% if user_signed_in? and current_user.admin? %>
   <% content_for :top_right do %> <%= link_to 'Hinzufügen', new_facility_path,
 class: "rounded-lg py-1 px-3 bg-lime-600 text-white block font-medium" %> <% end
 %>

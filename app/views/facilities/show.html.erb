@@ -44,7 +44,7 @@
       </p>
       <% end %>
     </div>
-    <% if user_signed_in? %>
+    <% if user_signed_in? and current_user.admin?%>
       <%= link_to 'Bearbeiten', edit_facility_path(@facility), class: "mt-2 py-3
       px-5 bg-gray-100 inline-block font-medium" %>
       <div class="inline-block ml-2">

@@ -1,5 +1,5 @@
 class FacilitiesController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create edit update destroy]
+  before_action :authenticate_admin!, only: %i[new create edit update destroy]
   before_action :set_facility, only: %i[show edit update destroy]
 
   # GET /facilities or /facilities.json
