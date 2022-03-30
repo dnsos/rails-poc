@@ -3,4 +3,7 @@ Rails.application.routes.draw do
 
   resources :facilities
   resources :focus_groups, only: :show
+
+  # Lookbook for component UI in development
+  mount Lookbook::Engine, at: '/lookbook' if Rails.env.development?
 end
