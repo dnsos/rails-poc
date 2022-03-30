@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+  <p class="py-1"><%= current_user.email %></p>
+  <%= button_to "Logout", destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'py-1' %>
+<% else %>
+  <%= link_to "Login", new_user_session_path, class: 'py-1' %>
+  <%= link_to "Register", new_user_registration_path, class: 'py-1' %>
+<% end %>

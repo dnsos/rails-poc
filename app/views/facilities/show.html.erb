@@ -44,11 +44,13 @@
       </p>
       <% end %>
     </div>
-    <%= link_to 'Bearbeiten', edit_facility_path(@facility), class: "mt-2 py-3
-    px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to 'Löschen', facility_path(@facility), method: :delete, class:
-      "mt-2 py-3 px-5 bg-gray-100 text-red-500 font-medium" %>
-    </div>
+    <% if user_signed_in? %>
+      <%= link_to 'Bearbeiten', edit_facility_path(@facility), class: "mt-2 py-3
+      px-5 bg-gray-100 inline-block font-medium" %>
+      <div class="inline-block ml-2">
+        <%= button_to 'Löschen', facility_path(@facility), method: :delete, class:
+        "mt-2 py-3 px-5 bg-gray-100 text-red-500 font-medium" %>
+      </div>
+    <% end %>
   </div>
 </div>
