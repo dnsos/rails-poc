@@ -1,0 +1,35 @@
+<% if @tag == :h1 %>
+  <h1 class="<%= @additional_classes %> text-4xl font-bold italic text-lime-600">
+    <%= content %>
+  </h1>
+<% end %>
+
+<% if @tag == :h2 %>
+  <h2 class="<%= @additional_classes %> text-3xl text-neutral-600">
+    <%= content %>
+  </h2>
+<% end %>
+
+<% if @tag == :h3 %>
+  <h3 class="<%= @additional_classes %> text-xl font-bold italic text-lime-600">
+    <%= content %>
+  </h3>
+<% end %>
+
+<% if @tag == :h4 %>
+  <h4 class="<%= @additional_classes %> text-lg font-bold text-lime-600">
+    <%= content %>
+  </h4>
+<% end %>
+
+<% if @tag == :h5 %>
+  <h5 class="<%= @additional_classes %> text-md font-bold italic">
+    <%= content %>
+  </h5>
+<% end %>
+
+<% if @tag == :h6 %>
+  <h6 class="<%= @additional_classes %> text-base font-bold">
+    <%= content %>
+  </h6>
+<% end %>
