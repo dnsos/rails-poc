@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: rails_poc_production
-  username: rails_poc
-  password: <%= ENV["RAILS_POC_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
