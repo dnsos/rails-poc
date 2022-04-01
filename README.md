@@ -24,7 +24,6 @@ Apart from the more meta-view on development, this repo covers a common use case
 
 Many things. Rails is complex and this guide is merely a basic proof-of-concept. Some things that are not covered are:
 
-- authentication / authorization (see e.g. [Devise](https://github.com/heartcombo/devise) and [CanCanCan](https://github.com/CanCanCommunity/cancancan))
 - deployment
 
 ## Development tooling

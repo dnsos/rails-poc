@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class FacilitiesControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    sign_in users(:bob) # Bob has role: admin
     @facility = facilities(:one)
   end
 
@@ -18,8 +21,22 @@ class FacilitiesControllerTest < ActionDispatch::IntegrationTest
   test 'should create facility' do
     assert_difference('Facility.count') do
       post facilities_url,
-           params: { facility: { address: @facility.address, city: @facility.city, district: @facility.district,
-                                 email: @facility.email, latitude: @facility.latitude, longitude: @facility.longitude, phone: @facility.phone, postal_code: @facility.postal_code, provider: @facility.provider, service: @facility.service, title: @facility.title, website: @facility.website } }
+           params: {
+             facility: {
+               address: @facility.address,
+               city: @facility.city,
+               district: @facility.district,
+               email: @facility.email,
+               latitude: @facility.latitude,
+               longitude: @facility.longitude,
+               phone: @facility.phone,
+               postal_code: @facility.postal_code,
+               provider: @facility.provider,
+               service: @facility.service,
+               title: @facility.title,
+               website: @facility.website,
+             },
+           }
     end
 
     assert_redirected_to facility_url(Facility.last)
@@ -37,15 +54,27 @@ class FacilitiesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should update facility' do
     patch facility_url(@facility),
-          params: { facility: { address: @facility.address, city: @facility.city, district: @facility.district,
-                                email: @facility.email, latitude: @facility.latitude, longitude: @facility.longitude, phone: @facility.phone, postal_code: @facility.postal_code, provider: @facility.provider, service: @facility.service, title: @facility.title, website: @facility.website } }
+          params: {
+            facility: {
+              address: @facility.address,
+              city: @facility.city,
+              district: @facility.district,
+              email: @facility.email,
+              latitude: @facility.latitude,
+              longitude: @facility.longitude,
+              phone: @facility.phone,
+              postal_code: @facility.postal_code,
+              provider: @facility.provider,
+              service: @facility.service,
+              title: @facility.title,
+              website: @facility.website,
+            },
+          }
     assert_redirected_to facility_url(@facility)
   end
 
   test 'should destroy facility' do
-    assert_difference('Facility.count', -1) do
-      delete facility_url(@facility)
-    end
+    assert_difference('Facility.count', -1) { delete facility_url(@facility) }
 
     assert_redirected_to facilities_url
   end

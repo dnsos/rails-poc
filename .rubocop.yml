@@ -24,3 +24,5 @@ Metrics/MethodLength:
   Enabled: false
 Lint/MissingSuper:
   Enabled: false
+Style/GuardClause:
+  Enabled: false

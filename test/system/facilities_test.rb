@@ -1,7 +1,12 @@
 require 'application_system_test_case'
 
 class FacilitiesTest < ApplicationSystemTestCase
-  setup { @facility = facilities(:one) }
+  include Devise::Test::IntegrationHelpers
+
+  setup do
+    sign_in users(:bob) # Bob has role: admin
+    @facility = facilities(:one)
+  end
 
   test 'visiting the index' do
     visit facilities_url
