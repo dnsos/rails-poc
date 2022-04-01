@@ -6,6 +6,6 @@ class FocusGroupsController < ApplicationController
   private
 
   def set_focus_group
-    @focus_group = FocusGroup.find(params[:id])
+    @focus_group = FocusGroup.friendly.find(params[:id])
   end
 end
