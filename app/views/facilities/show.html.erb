@@ -6,8 +6,9 @@
   data-facility-maptiler-key-value="<%= Rails.application.credentials.public_maptiler_key %>"
 >
   <div class="mx-auto">
-    <%= link_to 'Zur Übersicht', facilities_path, class: "inline-block
-    font-medium mb-16 text-neutral-600" %>
+    <%= render(ButtonComponent.new(tag: :a, href: facilities_path, scheme: :link, class: 'px-0 mb-5 inline-block')) do %>
+      Zur Übersicht
+    <% end %>
     <div class="grid gap-4 grid-cols-2">
       <div>
         <h1 class="text-3xl font-bold text-lime-600 italic">
@@ -17,7 +18,9 @@
         <% unless @facility.focus_groups.empty? %>
           <div class="mt-2 transition-transform group-hover:translate-x-2">
             <% @facility.focus_groups.each do |focus_group| %>
-              <span class="bg-lime-50 text-lime-700 text-sm rounded-md px-1 py-0.5 border border-lime-700 transition-colors hover:bg-lime-700 hover:text-white"><%= link_to focus_group.label, focus_group_path(focus_group) %></span>
+            <%= render(ButtonComponent.new(tag: :a, href: focus_group_path(focus_group), size: :small)) do %>
+              <%= focus_group.label %>
+            <% end %>
             <% end %>
           </div>
         <% end %>
@@ -31,22 +34,25 @@
         <p><%= @facility.address %></p>
         <p><%= @facility.postal_code %> <%= @facility.city %></p>
         <p>Bezirk: <%= @facility.district %></p>
+        <p>Tel.: <%= @facility.phone %></p>
       </div>
     </div>
-    <div class="mt-6 mb-32">
-      <% if @facility.email %> <%= link_to 'E-Mail schreiben',
-      "mailto:#{@facility.email}", class: 'inline-block p-3 bg-lime-600
-      text-white' %> <% end %> <% if @facility.website %> <%= link_to 'Website',
-      "https://#{@facility.website}", class: 'inline-block p-3 bg-lime-600
-      text-white' %> <% end %> <% if @facility.phone %>
-      <p class="inline-block p-3 bg-lime-100 text-lime-600">
-        Tel.: <%= @facility.phone %>
-      </p>
+    <div class="mt-6 mb-32 flex gap-3">
+      <% if @facility.email %>
+        <%= render(ButtonComponent.new(tag: :a, href: "mailto:#{@facility.email}", scheme: :primary)) do %>
+          E-Mail schreiben
+        <% end %>
+      <% end %>
+      <% if @facility.website %>
+        <%= render(ButtonComponent.new(tag: :a, href: @facility.website)) do %>
+          Website
+        <% end %>
       <% end %>
     </div>
     <% if user_signed_in? and current_user.admin?%>
-      <%= link_to 'Bearbeiten', edit_facility_path(@facility), class: "mt-2 py-3
-      px-5 bg-gray-100 inline-block font-medium" %>
+      <%= render(ButtonComponent.new(tag: :a, href: edit_facility_path(@facility))) do %>
+        Bearbeiten
+      <% end %>
       <div class="inline-block ml-2">
         <%= button_to 'Löschen', facility_path(@facility), method: :delete, class:
         "mt-2 py-3 px-5 bg-gray-100 text-red-500 font-medium" %>

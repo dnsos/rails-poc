@@ -54,6 +54,12 @@ gem 'bootsnap', require: false
 # Pagination library
 gem 'pagy', '~> 5.10', '>= 5.10.1'
 
+# Library for building components in isolation (by GitHub)
+gem 'view_component', '~> 2.52'
+
+# Storybook-like component UI
+gem 'lookbook', '~> 0.7.1'
+
 # User authentication
 gem 'devise', '~> 4.8', '>= 4.8.1'
 
