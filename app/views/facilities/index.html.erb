@@ -2,9 +2,11 @@
 %>
 
 <% if user_signed_in? and current_user.admin? %>
-  <% content_for :top_right do %> <%= link_to 'Hinzufügen', new_facility_path,
-class: "rounded-lg py-1 px-3 bg-lime-600 text-white block font-medium" %> <% end
-%>
+  <% content_for :top_right do %>
+    <%= render(ButtonComponent.new(tag: :a, href: new_facility_path, scheme: :primary)) do %>
+      Hinzufügen
+    <% end %>
+  <% end  %>
 <% end %>
 
 <div class="w-full h-full">
