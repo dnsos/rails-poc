@@ -25,14 +25,8 @@
       <b>Angebot von:</b> <br>
       <%= facility.provider %>
     </p>
-    <button
-      class="h-min opacity-0 transition-colors group-hover:opacity-100 py-2 px-3 bg-lime-100 text-lime-900 font-medium hover:bg-lime-300"
-      data-latitude="<%= facility.latitude %>"
-      data-longitude="<%= facility.longitude %>"
-      data-facility-id="<%= facility.id %>"
-      data-action="click->map#flyTo"
-    >
+    <%= render(ButtonComponent.new(tag: :button, scheme: :secondary, class: 'opacity-0 transition-colors group-hover:opacity-100', data: { latitude: facility.latitude, longitude: facility.longitude, 'facility-id': facility.id, action: 'click->map#flyTo'})) do %>
       Auf Karte zeigen
-    </button>
+    <% end %>
   </div>
 </div>

@@ -26,3 +26,5 @@ Lint/MissingSuper:
   Enabled: false
 Style/GuardClause:
   Enabled: false
+Metrics/ParameterLists:
+  Enabled: false
