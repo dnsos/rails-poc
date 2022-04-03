@@ -54,8 +54,9 @@
         Bearbeiten
       <% end %>
       <div class="inline-block ml-2">
-        <%= button_to 'Löschen', facility_path(@facility), method: :delete, class:
-        "mt-2 py-3 px-5 bg-gray-100 text-red-500 font-medium" %>
+        <%= render(ButtonComponent.new(tag: :button, path: facility_path(@facility), method: :delete, type: :submit, scheme: :danger)) do %>
+          Löschen
+        <% end %>
       </div>
     <% end %>
   </div>

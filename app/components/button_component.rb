@@ -25,16 +25,21 @@ class ButtonComponent < ViewComponent::Base
   def initialize(
     scheme: DEFAULT_SCHEME,
     size: :medium,
-    tag: :a,
+    tag: :button,
     href: nil,
+    path: nil,
+    type: :button,
     **args
   )
     @scheme = scheme
     @tag = tag
     @size = size
     @href = href
+    @path = path
+    @type = type
 
     @args = args
+    @args[:type] = @type
     @args[:class] =
       class_names(
         @args[:class],
