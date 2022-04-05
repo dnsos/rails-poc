@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
-import { DEFAULT_CENTER, getMaptilerStyle } from "./utils/map_utils.js";
+import { DEFAULT_CENTER, getMaptilerStyle } from "utils/map_utils";
 import "maplibre-gl";
 
 export default class extends Controller {

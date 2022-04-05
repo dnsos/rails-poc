@@ -15,6 +15,7 @@ The intention of this repo is to compare how workflows commonly used in our Node
 - **Renovate bot**: For keeping dependencies up to date.
 - **CI**: Rails can be run in GitHub Actions easily.
 - **Styling**: TailwindCSS can be configured with just one command.
+- **Deployment**: To Fly.io.
 
 Apart from the more meta-view on development, this repo covers a common use case:
 
@@ -112,3 +113,9 @@ The regex will pick up both of the aforementioned ways of adding classes. Adjust
 ## CI with GitHub Actions
 
 Rails can be run in GitHub Actions. This repo contains a `.github/workflows/rails.yml` file which sets up a PostgreSQL database, runs the tests, and lints changes using `rubocop` and `bundler-audit`.
+
+## Deployment
+
+Rails can be deployed to several cloud platforms such as [Heroku](https://devcenter.heroku.com/articles/getting-started-with-rails7) and [Render](https://render.com/docs/deploy-rails) or [to your own server](https://gorails.com/deploy/ubuntu/20.04).
+
+In this example, the app is deployed to Fly.io which (as of writing) has a free tier for apps and PostgreSQL databases. Follow [the deployment guide here](https://fly.io/docs/getting-started/rails/). The most important pieces are the `fly.toml` and the `Dockerfile`. Both have been created with the `flyctl launch` command.
