@@ -7,6 +7,7 @@ This repo is intended as a basic proof-of-concept of how to leverage [Ruby on Ra
 - Ruby on Rails 7
 - PostgreSQL database (dev, test, and production environments separated)
 - [TailwindCSS](https://github.com/rails/tailwindcss-rails) for styling
+- [Lookbook](https://github.com/allmarkedup/lookbook) is a Storybook alternative tailored for Ruby View Components
 - [Stimulus](https://stimulus.hotwired.dev/) for JavaScript (no TypeScript though)
 - a bit of [Turbo](https://turbo.hotwired.dev/) for an SPA feeling
 - [Renovate Bot](https://docs.renovatebot.com/ruby/) can keep Ruby gems up-to-date
