@@ -127,3 +127,51 @@ In this example, the app is deployed to Fly.io which (as of writing) has a free 
 Rails can be run in GitHub Actions. This repo contains a `.github/workflows/rails.yml` file which sets up a PostgreSQL database, runs the tests, and lints using `rubocop` and `bundler-audit`.
 
 Deployment via Actions is not configured, but [is possible](https://fly.io/docs/app-guides/continuous-deployment-with-github-actions/).
+
+## Getting started with this repo
+
+### Prerequisites
+
+- Ruby (preferrably installed with a version manger such as [rbenv](https://github.com/rbenv/rbenv))
+- Node.js (only needed for Prettier)
+- PostgreSQL 
+- Redis (actually optional)
+
+### Local development
+
+If you haven't yet, install Ruby's bundler tool:
+
+```bash
+gem install bundler
+```
+
+Install the dependencies from the `Gemfile`/`Gemfile.lock`:
+
+```bash
+bundle install
+```
+
+Create the PostgreSQL database for this project:
+
+```bash
+bin/rails db:create
+```
+
+Create the tables etc:
+
+```bash
+bin/rails db:migrate
+```
+
+And finally, seed your database with the data defined in `db/seeds.rb`:
+
+```bash
+bin/rails db:seed
+```
+
+Then, start a development server at http://localhost:3000:
+
+```bash
+bin/dev
+```
+
