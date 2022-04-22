@@ -58,7 +58,7 @@ gem 'pagy', '~> 5.10', '>= 5.10.1'
 gem 'view_component', '~> 2.52'
 
 # Storybook-like component UI
-gem 'lookbook', '~> 0.7.1'
+gem 'lookbook', '~> 0.8.0'
 
 # User authentication
 gem 'devise', '~> 4.8', '>= 4.8.1'
