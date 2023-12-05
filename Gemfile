@@ -93,7 +93,7 @@ group :development do
   # gem "spring"
 
   # Ruby Intellisense
-  gem 'solargraph', '~> 0.44.3'
+  gem 'solargraph', '~> 0.50.0'
 end
 
 group :test do
