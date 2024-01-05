@@ -55,7 +55,7 @@ gem 'bootsnap', require: false
 gem 'pagy', '~> 5.10', '>= 5.10.1'
 
 # Library for building components in isolation (by GitHub)
-gem 'view_component', '~> 2.52'
+gem 'view_component', '~> 3.0'
 
 # Storybook-like component UI
 gem 'lookbook', '~> 0.8.0'
